@@ -11,10 +11,10 @@ export const Homepage = ({navigation}) => {
         <ScrollView style={styles.textContainer}>
 
         <View style={styles.container}>
-        <View>w
+        <View>
 
        
-        <Image source={require('../images/Capture.PNG')} 
+        <Image source={require('../images/daily-health-app.png')} 
         style={[styles.logo]}
         />
         </View>
@@ -29,7 +29,7 @@ export const Homepage = ({navigation}) => {
                 />
 
 
-                  NUTRITION
+                <Text> NUTRITION</Text>  
                 </TouchableOpacity>
                 
             
@@ -43,7 +43,7 @@ export const Homepage = ({navigation}) => {
 
 
 
-                   EXERCISES
+                   <Text>EXERCISES</Text>
                 </TouchableOpacity>
 
 
@@ -62,7 +62,7 @@ export const Homepage = ({navigation}) => {
 
 
 
-                    TIPS 
+                   <Text> TIPS </Text>
     </TouchableOpacity> 
                 
 
@@ -77,7 +77,7 @@ export const Homepage = ({navigation}) => {
 
 
 
-                  ORDER MEDICATIONS
+                  <Text>ORDER MEDICATIONS</Text>
                 </TouchableOpacity>
                 
         </View>
