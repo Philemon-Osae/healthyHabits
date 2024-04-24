@@ -21,6 +21,8 @@ import LegStretch from './assets/components/legStretch';
 
 
 
+
+
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -150,6 +152,14 @@ function App() {
                 headerShown: false,
               }}
       />
+
+
+      {/* <Stack.Screen name="Tips" component={Tips} 
+             options={{
+                headerTitle: '',
+                headerShown: false,
+              }}
+            /> */}
 
 
       </Stack.Navigator>
