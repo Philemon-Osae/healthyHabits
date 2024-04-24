@@ -23,7 +23,7 @@ fontWeight: 'bold'
 
   logo: {
     width: '100%',
-    height: 450,
+    height: 400,
 },
 
   input: {
