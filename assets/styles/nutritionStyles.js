@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'red'
+        backgroundColor: 'yellow'
     },
 
     header: {
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
         
     },
     headerText: { 
-        fontSize: 32,
-        color: 'blue',
+        fontSize: 29,
+        color: 'grey',
         fontWeight: 'bold'
     },
 
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         height: '60%',
         width: '100%',
         justifyContent: 'space-around',
-        color: 'Blue'
+        color: 'grey'
     },
 
     optionSelect: {        
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
         width: '45%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue',
-        borderRadius: 44,
+        backgroundColor: 'grey',
+        borderRadius: 44,  
         elevation: 10
         },
         

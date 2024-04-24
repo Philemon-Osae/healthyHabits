@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity, View ,ScrollView, ImageBackground, ImageBackgroundComponent } from "react-native";
+import { Image, TouchableOpacity, View ,ScrollView, ImageBackground, Text ,ImageBackgroundComponent } from "react-native";
 
 import styles from "../styles/homepage";
 import { Button } from "react-native-web";
@@ -43,7 +43,7 @@ export const Homepage = ({navigation}) => {
 
 
 
-                   <Text>EXERCISES</Text>
+                   <Text> EXERCISES </Text>
                 </TouchableOpacity>
 
 

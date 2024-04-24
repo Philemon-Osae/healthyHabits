@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'red',
+      backgroundColor: 'white',
     },
   
     logo: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
       margin: 25,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'blue',
+      backgroundColor: 'grey',
       width: 280,
       borderRadius: 113,
       elevation: 10
