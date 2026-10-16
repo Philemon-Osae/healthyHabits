@@ -1,109 +1,95 @@
 import { StyleSheet } from "react-native";
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFF9F0',
         alignItems: 'center',
-        backgroundColor: 'yellow'
     },
-
     header: {
         marginTop: 50,
-        width: 177,
-        height: 40,
-        
+        width: '100%',
+        paddingHorizontal: 20,
+        marginBottom: 10,
     },
-    headerText: { 
-        fontSize: 29,
-        color: 'grey',
-        fontWeight: 'bold'
+    headerText: {
+        fontSize: 32,
+        color: '#D90429',
+        fontWeight: 'bold',
     },
-
+    subHeader: {
+        fontSize: 14,
+        color: '#666',
+        marginTop: 4,
+    },
+    scrollContent: {
+        paddingBottom: 30,
+    },
     nutritionContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        height: '60%',
         width: '100%',
         justifyContent: 'space-around',
-        color: 'grey'
+        paddingHorizontal: 10,
     },
-
-    optionSelect: {        
-        height: 160,
-        marginTop: 25,
+    optionSelect: {
         width: '45%',
+        backgroundColor: '#fff',
+        borderRadius: 16,
+        padding: 15,
+        marginTop: 15,
+        alignItems: 'center',
+        elevation: 4,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        shadowOffset: { width: 0, height: 3 },
+        borderLeftWidth: 5,
+        borderLeftColor: '#FFB703',
+    },
+    iconCircle: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'grey',
-        borderRadius: 44,  
-        elevation: 10
-        },
-        
-        optionLogoFruit: {
-            width: '100%',
-            height: 492,
-            color: 'red'
-          },
-
-          optionLogo: {
-            width: '100%',
-            height: 150,
-          },
-
-          optionLogoWheat: {
-            width: '100%',
-            height: 250,
-          },
-
-          optionLogoWater: {
-            width: '70%',
-            height: 100,
-          },
-
-          recordContainer: {
-            marginTop: 130,
-            height: 20,
-            alignSelf: "flex-start",
-            marginLeft: 15
-          },
-
-          eggs: {
-            width: 100,
-            height: 80,
-            tintColor: 'white' 
-          },
-
-          dairy: {
-            width: 100,
-            height: 100,
-            tintColor: 'white' 
-          },
-
-          fruit: {
-            width: 100,
-            height: 100,
-            tintColor: 'red' 
-          },
-
-          vegetables: {
-            width: 100,
-            height: 100,
-            tintColor: 'red' 
-          },
-
-          water: {
-            width: 100,
-            height: 100,
-            tintColor: 'red' 
-          },
-
-          recordText: {
-            fontWeight: 'bold',
-            fontSize: 15,
-            color: '#FF003D'
-          }
-
+        marginBottom: 10,
+    },
+    optionLogo: {
+        width: 50,
+        height: 50,
+    },
+    cardTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#222',
+        marginTop: 4,
+    },
+    cardSub: {
+        fontSize: 12,
+        color: '#777',
+        marginTop: 2,
+    },
+    tipCard: {
+        backgroundColor: '#FFF3CD',
+        borderRadius: 12,
+        padding: 15,
+        marginHorizontal: 20,
+        marginTop: 25,
+        borderLeftWidth: 4,
+        borderLeftColor: '#FFB703',
+    },
+    tipTitle: {
+        fontWeight: 'bold',
+        color: '#6A040F',
+        fontSize: 14,
+        marginBottom: 5,
+    },
+    tipText: {
+        color: '#333',
+        fontSize: 13,
+        lineHeight: 18,
+    },
 })
 
 export default styles;
