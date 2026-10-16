@@ -7,7 +7,7 @@
    
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/PPP.jpg",
+      "image": "./assets/images/PPP.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/daily-health-app.png",
         "backgroundColor": "#ffffff"
       }
     },
