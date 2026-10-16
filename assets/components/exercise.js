@@ -14,8 +14,8 @@ export default function Exercise({ navigation }) {
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Safe Exercises</Text>
-          <Text style={styles.subHeader}>1st - 3rd Trimester • 5-10 mins</Text>
+          <Text style={styles.headerText}>EXERCISES</Text>
+          <Text style={styles.subHeader}>HEALTHY HABITS • Safe for Mama</Text>
         </View>
 
         <View style={styles.warningBox}>
