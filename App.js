@@ -18,10 +18,8 @@ import Knee from './assets/components/kneeBend';
 import Stand from './assets/components/stand&Stretch';
 import BendBack from './assets/components/bendBackwards';
 import LegStretch from './assets/components/legStretch';
-
-
-
-
+import Tips from './assets/components/tips'; // ADDED - was commented
+import ContractionTimer from './assets/components/contractionTimer'; // NEW
 
 const Stack = createNativeStackNavigator();
 
@@ -29,144 +27,68 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Signup">
-      <Stack.Screen name="Exercise" component={Exercise} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-    <Stack.Screen name="Walking" component={Walking} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-              
-    <Stack.Screen name="LegExercise" component={LegStretch} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-    <Stack.Screen name="Bending" component={BendBack} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-<Stack.Screen name="Stand" component={Stand} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      <Stack.Screen name="Homepage" component={Homepage} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      <Stack.Screen name="Signup" component={SignUp} 
-           options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      <Stack.Screen name="Login" component={Login} 
-           options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-      <Stack.Screen name="Nutrition" component={Nutrition} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-      <Stack.Screen name="Splash" component={SplashScreen} 
-           options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-     
-    <Stack.Screen name="Vegetables" component={Vegetables} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-<Stack.Screen name="Knee" component={Knee} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-
-<Stack.Screen name="Fruits" component={Fruits} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      
-<Stack.Screen name="Water" component={Water} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      
-      <Stack.Screen name="Legumes" component={Legumes} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      
-      <Stack.Screen name="Eggs" component={Eggs} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-      
-      <Stack.Screen name="Dairy" component={Dairy} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-      />
-
-
-      {/* <Stack.Screen name="Tips" component={Tips} 
-             options={{
-                headerTitle: '',
-                headerShown: false,
-              }}
-            /> */}
-
-
+        <Stack.Screen name="Exercise" component={Exercise} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Walking" component={Walking} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="LegExercise" component={LegStretch} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Bending" component={BendBack} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Stand" component={Stand} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Homepage" component={Homepage} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Signup" component={SignUp} 
+             options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Login" component={Login} 
+             options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Nutrition" component={Nutrition} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Splash" component={SplashScreen} 
+             options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Vegetables" component={Vegetables} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Knee" component={Knee} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Fruits" component={Fruits} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Water" component={Water} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Legumes" component={Legumes} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Eggs" component={Eggs} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        <Stack.Screen name="Dairy" component={Dairy} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        {/* FIXED - was commented */}
+        <Stack.Screen name="Tips" component={Tips} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
+        {/* NEW - CONTRACTION TIMER */}
+        <Stack.Screen name="ContractionTimer" component={ContractionTimer} 
+               options={{ headerTitle: '', headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-    
   );
 }
-
 
 export default App;
