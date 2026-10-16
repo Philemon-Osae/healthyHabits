@@ -15,7 +15,7 @@ export function SplashScreen({ navigation }) {
     ]).start();
 
     const timer = setTimeout(() => {
-      navigation.replace('Login'); // replace so user can't go back to splash
+      navigation.replace('Login');
     }, 2500);
 
     return () => clearTimeout(timer);
@@ -25,13 +25,13 @@ export function SplashScreen({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="light" />
       <Animated.View style={[styles.logoWrapper, { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }]}>
-        <Image source={require('../images/pregg.png')} style={styles.logo} resizeMode="contain" />
-        <Text style={styles.appName}>MamaCare GH</Text>
+        <Image source={require('../images/daily-health-app.png')} style={styles.logo} resizeMode="contain" />
+        <Text style={styles.appName}>HEALTHY HABITS</Text>
         <Text style={styles.tagline}>Healthy Mama, Healthy Baby</Text>
       </Animated.View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>🇬🇭 Made for Ghanaian Mothers</Text>
+        <Text style={styles.footerText}>🇬🇭 Ghanaian Mothers Wellness</Text>
       </View>
     </View>
   );
