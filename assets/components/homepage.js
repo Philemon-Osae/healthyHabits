@@ -38,6 +38,16 @@ export const Homepage = ({ navigation }) => {
               <Text style={styles.cardSub}>Daily healthy habits</Text>
             </View>
           </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#FFB703' }]} onPress={() => navigation.navigate('ContractionTimer')} activeOpacity={0.8}>
+            <View style={[styles.iconCircle, { backgroundColor: '#FFB70330' }]}>
+              <Image source={require('../images/contract.png')} style={styles.exerciseLogo} resizeMode="contain" />
+            </View>
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>CONTRACTION TIMER</Text>
+              <Text style={styles.cardSub}>Daily healthy habits</Text>
+            </View>
+          </TouchableOpacity>
           <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#219EBC' }]} onPress={() => navigation.navigate('order drugs')} activeOpacity={0.8}>
             <View style={[styles.iconCircle, { backgroundColor: '#219EBC20' }]}>
               <Image source={require('../images/medicine.png')} style={styles.optionLogo} resizeMode="contain" />
@@ -46,7 +56,7 @@ export const Homepage = ({ navigation }) => {
               <Text style={styles.cardTitle}>ORDER MEDICATIONS</Text>
               <Text style={styles.cardSub}>Pharmacy nearby</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> 
         </View>
       </ScrollView>
     </View>
