@@ -1,39 +1,40 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: '#D90429',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-
-  textColor: {
-color: 'red',
-fontSize: 20,
-fontWeight: 'bold'
+  logoWrapper: {
+    alignItems: 'center',
   },
-
   logo: {
-    width: 144,
-    height: 143 
+    width: 180,
+    height: 180,
   },
-
-  optionSelect: {
-    height: 50,
-    margin: 10,
-    backgroundColor: 'blue',
-    width: '80%',
-    padding: 10,
-    borderRadius: 35,
-    borderWidth: 2,
-    borderColor: 'red'
-
+  appName: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginTop: 15,
+    letterSpacing: 1,
   },
-
-  input: {
+  tagline: {
+    color: '#FFD1DC',
+    fontSize: 14,
+    marginTop: 8,
+    letterSpacing: 0.5,
   },
-
+  footer: {
+    position: 'absolute',
+    bottom: 40,
+  },
+  footerText: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 12,
+  },
 });
 
 export default styles;
