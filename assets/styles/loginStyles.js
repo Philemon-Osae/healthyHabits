@@ -1,101 +1,97 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFF9F0',
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
-    backgroundColor: 'grey',
-    alignItems: 'center',
+    paddingBottom: 30,
   },
-
-textColor: {
-color: 'white',
-fontSize: 20,
-fontWeight: 'bold'
-  },
-
   logoContainer: {
-    top: 8,
-    margin: 15,
-    width: '100%',
-    height: 400,
-
+    alignItems: 'center',
+    marginTop: 40,
+    marginBottom: 10,
   },
-
   logo: {
-    width: '100%',
-    height: 450,
-},
-
-  input: {
-    height: 50,
-    margin: 10,
-    backgroundColor: 'white',
-    width: '80%',
-    padding: 10,
-    borderRadius: 35,
-    borderWidth: 2,
-    paddingLeft: 20,
-    borderColor: '#FF003D'
+    width: 220,
+    height: 220,
   },
-
+  appName: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#D90429',
+    marginTop: 5,
+  },
+  welcome: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
+  },
   inputContainer: {
     width: '100%',
+    paddingHorizontal: 25,
+    marginTop: 20,
+  },
+  label: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#333',
+    marginLeft: 10,
+    marginBottom: 6,
+    marginTop: 15,
+  },
+  input: {
+    height: 52,
+    backgroundColor: '#fff',
+    width: '100%',
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#FFD1DC',
+    fontSize: 15,
+    color: '#222',
+    elevation: 1,
+  },
+  forgotContainer: {
+    alignSelf: 'flex-end',
+    marginTop: 10,
+  },
+  forgotText: {
+    color: '#888',
+    fontSize: 13,
+  },
+  customBotton: {
+    height: 52,
+    marginTop: 25,
+    backgroundColor: '#FF003D',
+    width: '100%',
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 0,
+    elevation: 3,
   },
-
-
-  forgotContainer: {
-    flexDirection: 'row',
-    marginBottom: 30,
-    marginTop: 10,
-    alignSelf: 'center',
+  textt: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: 'bold',
   },
-
   signupContainer: {
     flexDirection: 'row',
-    marginBottom: 10,
-    marginTop: 15,
+    marginTop: 25,
     alignSelf: 'center',
   },
-
   signText: {
-    color: 'black',
-    fontSize: 15,
-    fontWeight: 'normal',
+    color: '#555',
+    fontSize: 14,
   },
-
-  rememberText: {
-    color: 'black',
-    fontSize: 15,
-    fontWeight: 'normal',
-    marginRight: 30
-  },
-
   signupLink: {
     fontWeight: 'bold',
     color: '#FF003D',
     marginLeft: 5,
   },
-
-  textt: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-
-  customBotton: {
-    height: 50,
-    marginTop: 80,
-    backgroundColor: '#FF003D',
-    width: '50%',
-    padding: 10,
-    borderRadius: 14,
-  },
-
 });
 
 export default styles;
