@@ -1,88 +1,63 @@
-import { Image, TouchableOpacity, View ,ScrollView, ImageBackground, Text ,ImageBackgroundComponent } from "react-native";
-
+import { Image, TouchableOpacity, View, ScrollView, Text } from "react-native";
 import styles from "../styles/homepage";
-import { Button } from "react-native-web";
 
-export const Homepage = ({navigation}) => {
-    return(
-      
+export const Homepage = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
 
-
-        <ScrollView style={styles.textContainer}>
-
-        <View style={styles.container}>
-        <View>
-
-       
-        <Image source={require('../images/daily-health-app.png')} 
-        style={[styles.logo]}
-        />
+        <View style={styles.topSection}>
+          <Image source={require('../images/daily-health-app.png')} style={styles.logo} resizeMode="contain" />
+          <Text style={styles.appName}>MamaCare GH</Text>
+          <Text style={styles.appSlogan}>Healthy Mama, Healthy Baby 🇬🇭</Text>
         </View>
 
         <View style={styles.optionContainer}>
-            
-        <TouchableOpacity style={styles.optionSelect}
-                onPress={() => navigation.navigate('Nutrition')}
-                > 
-                <Image source={require('../images/nutrition.png')} 
-                    style={styles.optionLogo}
-                />
 
+          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#2A9D8F' }]} onPress={() => navigation.navigate('Nutrition')} activeOpacity={0.8}>
+            <View style={[styles.iconCircle, { backgroundColor: '#2A9D8F20' }]}>
+              <Image source={require('../images/nutrition.png')} style={styles.optionLogo} resizeMode="contain" />
+            </View>
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>NUTRITION</Text>
+              <Text style={styles.cardSub}>What to eat - local Ghana foods</Text>
+            </View>
+          </TouchableOpacity>
 
-                <Text> NUTRITION</Text>  
-                </TouchableOpacity>
-                
-            
+          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#E76F51' }]} onPress={() => navigation.navigate('Exercise')} activeOpacity={0.8}>
+            <View style={[styles.iconCircle, { backgroundColor: '#E76F5120' }]}>
+              <Image source={require('../images/stretch.png')} style={styles.optionLogo} resizeMode="contain" />
+            </View>
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>EXERCISES</Text>
+              <Text style={styles.cardSub}>Safe walks & stretches</Text>
+            </View>
+          </TouchableOpacity>
 
-            <TouchableOpacity style={styles.optionSelect}
-                onPress={() => navigation.navigate('Exercise')}
-                >
-                <Image source={require('../images/stretch.png')} 
-                    style={styles.optionLogo}
-                />
+          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#FFB703' }]} onPress={() => navigation.navigate('Tips')} activeOpacity={0.8}>
+            <View style={[styles.iconCircle, { backgroundColor: '#FFB70330' }]}>
+              <Image source={require('../images/bulb.png')} style={styles.exerciseLogo} resizeMode="contain" />
+            </View>
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>TIPS</Text>
+              <Text style={styles.cardSub}>Daily advice for each trimester</Text>
+            </View>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#219EBC' }]} onPress={() => navigation.navigate('order drugs')} activeOpacity={0.8}>
+            <View style={[styles.iconCircle, { backgroundColor: '#219EBC20' }]}>
+              <Image source={require('../images/medicine.png')} style={styles.optionLogo} resizeMode="contain" />
+            </View>
+            <View style={styles.textWrap}>
+              <Text style={styles.cardTitle}>ORDER MEDICATIONS</Text>
+              <Text style={styles.cardSub}>Prenatal & pharmacy nearby</Text>
+            </View>
+          </TouchableOpacity>
 
-
-                   <Text> EXERCISES </Text>
-                </TouchableOpacity>
-
-
-
-
-              
-                
-                
-                
-                 <TouchableOpacity style={styles.optionSelect}
-                onPress={() => navigation.navigate('Tips')}
-                >
-                <Image source={require('../images/bulb.png')} 
-                    style={styles.exerciseLogo}
-                />
-
-
-
-                   <Text> TIPS </Text>
-    </TouchableOpacity> 
-                
-
-              
-                
-                 <TouchableOpacity style={styles.optionSelect}
-                onPress={() => navigation.navigate('order drugs')}
-                > 
-                <Image source={require('../images/medicine.png')} 
-                    style={styles.optionLogo}
-                />
-
-
-
-                  <Text>ORDER MEDICATIONS</Text>
-                </TouchableOpacity>
-                
         </View>
-        
-        
-        </View>
-        </ScrollView>
-    )}
+
+        <Text style={styles.footer}>Made for Ghanaian mothers ❤️</Text>
+      </ScrollView>
+    </View>
+  )
+}
