@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, TouchableOpacity, View, StyleSheet, ScrollView } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
+import { Video, ResizeMode } from 'expo-video';
 
 export default function LegStretch({navigation}) {
   const video = React.useRef(null);

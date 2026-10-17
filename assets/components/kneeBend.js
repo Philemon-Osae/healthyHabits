@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
+import { Video, ResizeMode } from 'expo-video';
 
 export default function Knee({navigation}) {
   const video = React.useRef(null);
