@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-native';
-import { Video, ResizeMode } from 'expo-video';
+import { VideoView, useVideoPlayer } from 'expo-video';
 
 export default function BendBack({navigation}) {
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
+  const player = useVideoPlayer(require('../assets/videos/bendBackwards.mp4'), player => {
+    player.loop = true;
+  });
+
+  const [isPlaying, setIsPlaying] = React.useState(false);
   
   return (
     <View style={styles.container}>
@@ -21,14 +24,12 @@ export default function BendBack({navigation}) {
 
         {/* Video Card */}
         <View style={styles.videoCard}>
-          <Video
-            ref={video}
+          <VideoView
             style={styles.video}
-            source={require('../videos/bendBackwards.mp4')}
-            useNativeControls
-            resizeMode={ResizeMode.CONTAIN}
-            isLooping
-            onPlaybackStatusUpdate={status => setStatus(() => status)}
+            player={player}
+            allowsFullscreen
+            contentFit="contain"
+            nativeControls={false}
           />
         </View>
 
@@ -45,9 +46,17 @@ export default function BendBack({navigation}) {
         <View style={styles.buttonContainer}>
           <TouchableOpacity 
             style={[styles.customButton, styles.playBtn]}
-            onPress={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}
+            onPress={() => {
+              if (player.playing) {
+                player.pause();
+                setIsPlaying(false);
+              } else {
+                player.play();
+                setIsPlaying(true);
+              }
+            }}
           >
-            <Text style={styles.buttonText}>{status.isPlaying ? '⏸ PAUSE' : '▶ START'}</Text>
+            <Text style={styles.buttonText}>{isPlaying ? '⏸ PAUSE' : '▶ START'}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
