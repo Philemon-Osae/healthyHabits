@@ -56,7 +56,7 @@ export const Homepage = ({ navigation }) => {
             <Text style={{ fontSize: 18, color: '#D90429' }}>›</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#219EBC' }]} onPress={() => navigation.navigate('OrderDrugs')} activeOpacity={0.8}>
+{/* <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#219EBC' }]} onPress={() => navigation.navigate('OrderDrugs')} activeOpacity={0.8}>
             <View style={[styles.iconCircle, { backgroundColor: '#219EBC20' }]}>
               <Image source={require('../images/medicine.png')} style={styles.optionLogo} resizeMode="contain" />
             </View>
@@ -64,7 +64,7 @@ export const Homepage = ({ navigation }) => {
               <Text style={styles.cardTitle}>ORDER MEDICATIONS</Text>
               <Text style={styles.cardSub}>Pharmacy nearby</Text>
             </View>
-          </TouchableOpacity> 
+          </TouchableOpacity> */}
 
         </View>
 
