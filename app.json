@@ -4,7 +4,6 @@
     "slug": "healthyHabits",
     "version": "1.0.0",
     "orientation": "portrait",
-   
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/PPP.jpg",
@@ -25,6 +24,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-audio",
+      "expo-video",
+      "expo-status-bar"
+    ]
   }
 }
