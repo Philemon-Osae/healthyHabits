@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View, StyleSheet, ScrollView } from 'react-nati
 import { VideoView, useVideoPlayer } from 'expo-video';
 
 export default function LegStretch({navigation}) {
-  const player = useVideoPlayer(require('../assets/videos/stretching-legs.mp4'), player => {
+  const player = useVideoPlayer(require('../videos/stretching-legs.mp4'), player => {
     player.loop = true;
   });
   const [isPlaying, setIsPlaying] = React.useState(false);

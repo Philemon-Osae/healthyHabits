@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-nati
 import { VideoView, useVideoPlayer } from 'expo-video';
 
 export default function BendBack({navigation}) {
-  const player = useVideoPlayer(require('../assets/videos/bendBackwards.mp4'), player => {
+  const player = useVideoPlayer(require('../videos/bendBackwards.mp4'), player => {
     player.loop = true;
   });
 

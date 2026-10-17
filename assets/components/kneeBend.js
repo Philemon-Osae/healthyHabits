@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-nati
 import { VideoView, useVideoPlayer } from 'expo-video';
 
 export default function Knee({navigation}) {
-  const player = useVideoPlayer(require('../assets/videos/knees.mp4'), player => {
+  const player = useVideoPlayer(require('../videos/knees.mp4'), player => {
     player.loop = true;
   });
   const [isPlaying, setIsPlaying] = React.useState(false);
