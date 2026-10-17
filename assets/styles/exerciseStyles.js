@@ -1,73 +1,114 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF9F0',
-  },
-  header: {
-    marginTop: 60,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-  },
-  headerText: {
-    fontSize: 28,
-    color: '#111',
-    fontWeight: 'bold',
-  },
-  subHeader: {
-    fontSize: 13,
-    color: '#888',
-    marginTop: 6,
-  },
-  warningBox: {
-    backgroundColor: '#FFF3CD',
-    borderRadius: 10,
-    padding: 12,
-    marginHorizontal: 20,
-    marginTop: 20,
-    borderLeftWidth: 4,
-    borderLeftColor: '#FFC107',
-  },
-  warningText: {
-    fontSize: 12,
-    color: '#664D03',
-    lineHeight: 18,
-  },
-  nutritionContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    marginTop: 20,
-    paddingBottom: 30,
-  },
-  optionSelect: {
-    height: 165,
-    width: '48%',
-    marginTop: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 18,
-    elevation: 2,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  optionLogo: {
-    width: 70,
-    height: 70,
-  },
-  cardTitle: {
-    fontWeight: 'bold',
-    fontSize: 13,
-    color: '#222',
-    marginTop: 10,
-  },
-  cardSub: {
-    fontSize: 11,
-    color: '#666',
-    marginTop: 2,
-  },
-})
+    container: {
+        flex: 1,
+        backgroundColor: '#FFF9F0',
+    },
+    scrollContent: {
+        paddingBottom: 30,
+    },
+    header: {
+        marginTop: 50,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+    },
+    backBtn: {
+        backgroundColor: '#fff',
+        alignSelf: 'flex-start',
+        paddingHorizontal: 14,
+        paddingVertical: 6,
+        borderRadius: 20,
+        elevation: 1,
+    },
+    backText: {
+        color: '#D90429',
+        fontWeight: '700',
+        fontSize: 13,
+    },
+    headerText: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: '#111',
+        marginTop: 15,
+    },
+    subHeader: {
+        fontSize: 12,
+        color: '#888',
+        marginTop: 4,
+    },
+    warningBox: {
+        backgroundColor: '#FFF3CD',
+        borderRadius: 12,
+        padding: 12,
+        marginHorizontal: 20,
+        marginTop: 15,
+        borderLeftWidth: 4,
+        borderLeftColor: '#FFB703',
+    },
+    warningText: {
+        fontSize: 12,
+        color: '#856404',
+        lineHeight: 16,
+    },
+    nutritionContainer: {
+        width: '100%',
+        paddingHorizontal: 20,
+        marginTop: 10,
+        alignItems: 'center',
+    },
+    optionSelect: {
+        flexDirection: 'row',
+        backgroundColor: '#fff',
+        width: '100%',
+        height: 90,
+        borderRadius: 16,
+        marginTop: 15,
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        elevation: 3,
+        shadowColor: '#000',
+        shadowOpacity: 0.06,
+        shadowRadius: 5,
+        shadowOffset: { width: 0, height: 2 },
+        borderLeftWidth: 5,
+    },
+    iconCircle: {
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    optionLogo: {
+        width: 36,
+        height: 36,
+    },
+    textWrap: {
+        marginLeft: 14,
+        flex: 1,
+    },
+    cardTitle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#222',
+    },
+    cardSub: {
+        fontSize: 12,
+        color: '#777',
+        marginTop: 2,
+    },
+    arrow: {
+        fontSize: 22,
+        color: '#ccc',
+        fontWeight: 'bold',
+    },
+    footer: {
+        textAlign: 'center',
+        marginTop: 25,
+        color: '#aaa',
+        fontSize: 11,
+    },
+});
 
 export default styles;
