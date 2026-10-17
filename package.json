@@ -27,7 +27,8 @@
     "react-native-web": "^0.21.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0"
+    "@babel/core": "^7.29.0",
+    "webpack-dev-server": "^4.15.2"
   },
   "private": true
 }
