@@ -1,43 +1,22 @@
 import { Image, TouchableOpacity, View, ScrollView, Text } from "react-native";
-import { useState, useEffect } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState, useContext } from "react";
+import { UserContext } from "./UserContext"; // <-- ADDED
 import styles from "../styles/homepage";
 
 export const Homepage = ({ navigation }) => {
+  const { userName } = useContext(UserContext); // Gets Phil / Chris from signup
+  const displayName = userName || 'Phil';
   const [bloodTaken, setBloodTaken] = useState(false);
   const [streak] = useState(5);
-  const [userName, setUserName] = useState('Esi'); // default before login
   const currentWeek = 20;
   const babySize = { item: "Cocoa Pod", twi: "Aba Kɔkɔɔ", size: "~25cm • 300g", icon: "🫘" };
   const nextANC = { date: "24 Oct", week: "Contact 3 - 26 Weeks", facility: "Korle Bu Teaching Hospital", daysLeft: 3, done: 2 };
 
-  // PLAY STORE LOGIC: Load saved name Mary / Rose
-  useEffect(() => {
-    const loadName = async () => {
-      try {
-        const savedName = await AsyncStorage.getItem('userName');
-        if (savedName) {
-          setUserName(savedName);
-        }
-      } catch (e) {
-        console.log("No saved name");
-      }
-    };
-    loadName();
-    
-    // Reload when you come back from signup
-    const unsubscribe = navigation.addListener('focus', () => {
-      loadName();
-    });
-    return unsubscribe;
-  }, [navigation]);
-
   return (
     <View style={styles.container}>
-      {/* REAL HEADER - DYNAMIC NAME */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Text style={styles.greeting}>Maakye, {userName}! ☀️</Text>
+          <Text style={styles.greeting}>Maakye, {displayName}! ☀️</Text>
           <Text style={styles.greetingSub}>Week {currentWeek} • Agoo? Wo ho te sɛn?</Text>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('PartnerLink')} style={styles.avatarWrap}>
@@ -47,10 +26,8 @@ export const Homepage = ({ navigation }) => {
       </View>
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-
         <View style={styles.optionContainer}>
 
-          {/* 1. BLOOD TABS - Premium card */}
           <TouchableOpacity 
             style={[styles.optionSelect, styles.cardGreen]} 
             onPress={() => setBloodTaken(!bloodTaken)}
@@ -65,14 +42,13 @@ export const Homepage = ({ navigation }) => {
                 <View style={styles.streakPill}><Text style={styles.streakText}>🔥 {streak} days</Text></View>
               </View>
               <Text style={styles.cardTitle}>Have you taken today?</Text>
-              <Text style={styles.cardSub}>{bloodTaken ? `Ayekoo, ${userName}! Streak continues` : 'Iron + Folic • Tap Yes'}</Text>
+              <Text style={styles.cardSub}>{bloodTaken ? `Ayekoo, ${displayName}! Streak continues` : 'Iron + Folic • Tap Yes'}</Text>
             </View>
             <View style={[styles.checkBtn, bloodTaken && styles.checkBtnDone]}>
               <Text style={styles.checkBtnText}>{bloodTaken ? '✓' : 'Yes'}</Text>
             </View>
           </TouchableOpacity>
 
-          {/* 2. BABY SIZE */}
           <TouchableOpacity style={styles.optionSelect} onPress={() => navigation.navigate('Tips')} activeOpacity={0.9}>
             <Image source={require('../images/daily-health-app.png')} style={styles.babyImg} />
             <View style={styles.textWrap}>
@@ -83,7 +59,6 @@ export const Homepage = ({ navigation }) => {
             <Text style={styles.arrow}>›</Text>
           </TouchableOpacity>
 
-          {/* 3. ANC - Blue premium */}
           <TouchableOpacity style={[styles.optionSelect, styles.cardBlue]} onPress={() => navigation.navigate('AncTracker')} activeOpacity={0.9}>
             <View style={[styles.iconCircle, { backgroundColor: 'rgba(255,255,255,0.25)' }]}>
               <Text style={styles.iconEmoji}>🏥</Text>
@@ -97,7 +72,6 @@ export const Homepage = ({ navigation }) => {
             <View style={styles.daysBox}><Text style={styles.daysNum}>{nextANC.daysLeft}</Text><Text style={styles.daysLabel}>DAYS</Text></View>
           </TouchableOpacity>
 
-          {/* 4. AGOO - Dark card */}
           <TouchableOpacity style={[styles.optionSelect, styles.cardDark]} onPress={() => navigation.navigate('Tips')} activeOpacity={0.9}>
             <View style={styles.textWrap}>
               <Text style={styles.cardLabelOrange}>🔊 DAILY AGOO • 30 SEC LISTEN</Text>
@@ -127,11 +101,10 @@ export const Homepage = ({ navigation }) => {
             <Text style={[styles.arrow, { color: '#D90429' }]}>›</Text>
           </TouchableOpacity>
 
-          <Text style={styles.footer}>Made with ❤️ for {userName} • Korle Bu Approved • Ghanaian mothers</Text>
+          <Text style={styles.footer}>Made with ❤️ for {displayName} • Korle Bu Approved • Ghanaian mothers</Text>
         </View>
       </ScrollView>
 
-      {/* Bottom nav */}
       <View style={styles.bottomNav}>
         <View style={styles.navItem}><Text style={styles.navIconActive}>●</Text><Text style={styles.navLabelActive}>Home</Text></View>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('AncTracker')}><Text style={styles.navIcon}>📖</Text><Text style={styles.navLabel}>Pink Book</Text></TouchableOpacity>
