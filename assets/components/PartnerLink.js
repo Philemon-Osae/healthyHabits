@@ -1,6 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking } from 'react-native';
+import { useContext } from 'react';
+import { UserContext } from './UserContext'; // <-- ADDED
 
 export const PartnerLink = ({ navigation }) => {
+  const { userName } = useContext(UserContext); // Gets Phil, Chris, whatever typed at signup
+  const displayName = userName || 'Phil'; // Fallback if no name yet
+
   const sendSMS = (msg) => {
     const phone = ""; // partner number from storage later
     Linking.openURL(`sms:${phone}?body=${encodeURIComponent(msg)}`);
@@ -16,35 +21,35 @@ export const PartnerLink = ({ navigation }) => {
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.cardBlue}>
           <Text style={styles.cardLabel}>FOR PARTNER • Maame + Papa</Text>
-          <Text style={styles.cardTitle}>Help Esi stay healthy this week</Text>
+          <Text style={styles.cardTitle}>Help {displayName} stay healthy this week</Text>
           <Text style={styles.cardSub}>Week 20 - Baby is Cocoa Pod size. 3 days to ANC.</Text>
         </View>
 
         <Text style={styles.section}>TAP TO SEND SMS • Free, no data</Text>
 
-        <TouchableOpacity style={styles.card} onPress={() => sendSMS("Esi needs kontomire + garden eggs today for blood. Can you buy from market? - Healthy Habits")}>
+        <TouchableOpacity style={styles.card} onPress={() => sendSMS(`${displayName} needs kontomire + garden eggs today for blood. Can you buy from market? - Healthy Habits`)}>
           <View style={styles.icon}><Text>🥬</Text></View>
           <View style={{flex:1, marginLeft: 12}}>
             <Text style={styles.title}>Remind Partner to Buy Vegetables</Text>
-            <Text style={styles.sub}>Kontomire, garden eggs - for blood tonic</Text>
+            <Text style={styles.sub}>Kontomire, garden eggs - for {displayName}'s blood tonic</Text>
           </View>
           <Text style={styles.arrow}>›</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => sendSMS("Reminder: Esi's ANC is 24 Oct at Korle Bu 8am. Please remind her to bring Pink Book + urine. - Healthy Habits")}>
+        <TouchableOpacity style={styles.card} onPress={() => sendSMS(`Reminder: ${displayName}'s ANC is 24 Oct at Korle Bu 8am. Please remind her to bring Pink Book + urine. - Healthy Habits`)}>
           <View style={styles.icon}><Text>🏥</Text></View>
           <View style={{flex:1, marginLeft: 12}}>
             <Text style={styles.title}>Remind Partner About ANC</Text>
-            <Text style={styles.sub}>24 Oct • Korle Bu • 8am • 3 days left</Text>
+            <Text style={styles.sub}>{displayName}'s ANC • 24 Oct • Korle Bu • 8am • 3 days left</Text>
           </View>
           <Text style={styles.arrow}>›</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => sendSMS("Esi took blood tonic today - 5 days streak! Ayekoo to her. - Healthy Habits")}>
+        <TouchableOpacity style={styles.card} onPress={() => sendSMS(`${displayName} took blood tonic today - 5 days streak! Ayekoo to her. - Healthy Habits`)}>
           <View style={styles.icon}><Text>💊</Text></View>
           <View style={{flex:1, marginLeft: 12}}>
             <Text style={styles.title}>Share Blood Tonic Progress</Text>
-            <Text style={styles.sub}>Ayekoo! 5 days streak - mogya aduru</Text>
+            <Text style={styles.sub}>Ayekoo! {displayName} - 5 days streak - mogya aduru</Text>
           </View>
           <Text style={styles.arrow}>›</Text>
         </TouchableOpacity>
