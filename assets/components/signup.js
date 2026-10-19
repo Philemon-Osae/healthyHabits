@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Image, View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserContext } from './UserContext'; // <-- ADDED
 import styles from '../styles/signupStyles'
 
 export default function SignUp({ navigation }) {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const { saveName } = useContext(UserContext); // <-- ADDED
 
   const handleSignUp = async () => {
     if (!username.trim()) {
@@ -22,6 +24,7 @@ export default function SignUp({ navigation }) {
     await AsyncStorage.setItem('userName', username.trim());
     if (email) await AsyncStorage.setItem('userEmail', email.trim());
     await AsyncStorage.setItem('isLoggedIn', 'true');
+    await saveName(username.trim()); // <-- FIXES AC BUG
 
     // use replace so no flicker back to signup
     navigation.replace('Homepage');
