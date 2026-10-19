@@ -6,129 +6,115 @@ export const Homepage = ({ navigation }) => {
   const [bloodTaken, setBloodTaken] = useState(false);
   const [streak] = useState(5);
   const currentWeek = 20;
-  const babySize = { item: "Cocoa Pod", twi: "Aba", size: "~25cm", icon: "🫘" };
-  const nextANC = { date: "24 Oct", week: "Contact 3 - 26 Weeks", facility: "Korle Bu", daysLeft: 3, done: 2 };
+  const babySize = { item: "Cocoa Pod", twi: "Aba Kɔkɔɔ", size: "~25cm • 300g", icon: "🫘" };
+  const nextANC = { date: "24 Oct", week: "Contact 3 - 26 Weeks", facility: "Korle Bu Teaching Hospital", daysLeft: 3, done: 2 };
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.topSection}>
-          <Image source={require('../images/daily-health-app.png')} style={styles.logo} resizeMode="contain" />
-          <Text style={styles.appName}>HEALTHY HABITS</Text>
-          <Text style={styles.appSlogan}>Healthy living every day • Made for Ghana</Text>
+      {/* REAL HEADER - like production app */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <Text style={styles.greeting}>Maakye, Esi! ☀️</Text>
+          <Text style={styles.greetingSub}>Week {currentWeek} • Agoo? Wo ho te sɛn?</Text>
         </View>
+        <TouchableOpacity onPress={() => navigation.navigate('PartnerLink')} style={styles.avatarWrap}>
+          <Image source={require('../images/daily-health-app.png')} style={styles.avatar} />
+          <View style={styles.onlineDot} />
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
 
         <View style={styles.optionContainer}>
 
-          {/* === NEW DAILY HABIT LOOP - 4 CARDS === */}
-          
-          {/* 1. Blood Tabs - Have you taken your blood tabs today? */}
+          {/* 1. BLOOD TABS - Premium card */}
           <TouchableOpacity 
-            style={[styles.optionSelect, { borderLeftColor: '#10b981', backgroundColor: '#f0fdf4', height: 105 }]} 
+            style={[styles.optionSelect, styles.cardGreen]} 
             onPress={() => setBloodTaken(!bloodTaken)}
-            activeOpacity={0.8}
+            activeOpacity={0.9}
           >
-            <View style={[styles.iconCircle, { backgroundColor: '#10b98130' }]}>
-              <Text style={{ fontSize: 28 }}>💊</Text>
+            <View style={[styles.iconCircle, { backgroundColor: '#10b981' }]}>
+              <Text style={styles.iconEmoji}>💊</Text>
             </View>
             <View style={styles.textWrap}>
-              <Text style={[styles.cardTitle, { fontSize: 13 }]}>Have you taken your blood tabs today?</Text>
-              <Text style={styles.cardSub}>{bloodTaken ? `✓ Ayekoo! ${streak} days streak` : 'Iron + Folic • Tap to confirm'}</Text>
-              <View style={styles.badge}><Text style={styles.badgeText}>{bloodTaken ? 'DONE TODAY' : 'TAP YES'}</Text></View>
+              <View style={styles.rowBetween}>
+                <Text style={styles.cardLabel}>MOGYA ADURU • BLOOD TONIC</Text>
+                <View style={styles.streakPill}><Text style={styles.streakText}>🔥 {streak} days</Text></View>
+              </View>
+              <Text style={styles.cardTitle}>Have you taken today?</Text>
+              <Text style={styles.cardSub}>{bloodTaken ? `Ayekoo! Streak continues` : 'Iron + Folic • Tap Yes'}</Text>
             </View>
             <View style={[styles.checkBtn, bloodTaken && styles.checkBtnDone]}>
               <Text style={styles.checkBtnText}>{bloodTaken ? '✓' : 'Yes'}</Text>
             </View>
           </TouchableOpacity>
 
-          {/* 2. Baby Size Match - Garden Egg / Cocoa Pod */}
-          <View style={[styles.optionSelect, { borderLeftColor: '#D90429', height: 105 }]}>
-            <View style={[styles.iconCircle, { backgroundColor: '#D9042920' }]}>
-              <Text style={{ fontSize: 32 }}>{babySize.icon}</Text>
-            </View>
+          {/* 2. BABY SIZE - With real image feel */}
+          <TouchableOpacity style={styles.optionSelect} onPress={() => navigation.navigate('Tips')} activeOpacity={0.9}>
+            <Image source={require('../images/daily-health-app.png')} style={styles.babyImg} />
             <View style={styles.textWrap}>
-              <Text style={styles.cardSub}>WEEK {currentWeek} • LOCAL SIZE</Text>
-              <Text style={styles.cardTitle}>Baby is size of a {babySize.item}</Text>
-              <Text style={styles.cardSub}>{babySize.twi} • {babySize.size} • Not avocado</Text>
+              <Text style={styles.cardLabel}>BABY SIZE • WEEK {currentWeek}</Text>
+              <Text style={styles.cardTitle}>Baby is size of {babySize.item}</Text>
+              <Text style={styles.cardSubTwi}>{babySize.twi} • {babySize.size} • Aba, not avocado</Text>
             </View>
-          </View>
-
-          {/* 3. Pink Book Replacement - ANC */}
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#FFB703', backgroundColor: '#FFFBEB', height: 105 }]} onPress={() => navigation.navigate('AncTracker')} activeOpacity={0.8}>
-            <View style={[styles.iconCircle, { backgroundColor: '#FFB70330' }]}>
-              <Text style={{ fontSize: 28 }}>📅</Text>
-            </View>
-            <View style={styles.textWrap}>
-              <Text style={styles.cardTitle}>Next ANC: {nextANC.date}</Text>
-              <Text style={styles.cardSub}>{nextANC.week} • {nextANC.facility}</Text>
-              <View style={styles.progressBar}><View style={[styles.progressFill, { width: '25%' }]} /></View>
-              <Text style={styles.progressText}>{nextANC.done} / 8 done • {nextANC.daysLeft} days left</Text>
-            </View>
-            <Text style={{ fontSize: 18 }}>›</Text>
+            <Text style={styles.arrow}>›</Text>
           </TouchableOpacity>
 
-          {/* 4. Daily Agoo - Educational Tip */}
-          <View style={[styles.optionSelect, { borderLeftColor: '#219EBC', backgroundColor: '#F0F9FF', height: 110 }]}>
-            <View style={[styles.iconCircle, { backgroundColor: '#219EBC20' }]}>
-              <Text style={{ fontSize: 26 }}>🎧</Text>
+          {/* 3. ANC - Blue premium */}
+          <TouchableOpacity style={[styles.optionSelect, styles.cardBlue]} onPress={() => navigation.navigate('AncTracker')} activeOpacity={0.9}>
+            <View style={[styles.iconCircle, { backgroundColor: 'rgba(255,255,255,0.25)' }]}>
+              <Text style={styles.iconEmoji}>🏥</Text>
             </View>
             <View style={styles.textWrap}>
-              <Text style={styles.cardSub}>DAILY AGOO • 30 SEC TIP</Text>
-              <Text style={[styles.cardTitle, { fontSize: 12, lineHeight: 16 }]}>Eat kontomire with orange to absorb iron</Text>
-              <Text style={[styles.cardSub, { fontStyle: 'italic', color: '#9a3412' }]}>Myth: Snails cause drool? False.</Text>
+              <Text style={styles.cardLabelLight}>NEXT ANC VISIT • 3 DAYS LEFT</Text>
+              <Text style={[styles.cardTitle, { color: '#fff' }]}>{nextANC.date} • {nextANC.facility}</Text>
+              <View style={styles.progressBarWhite}><View style={[styles.progressFillWhite, { width: '25%' }]} /></View>
+              <Text style={styles.progressTextWhite}>{nextANC.done} / 8 Contacts done • Pink Book 25%</Text>
             </View>
-          </View>
-
-          {/* === END NEW LOOP - YOUR OLD CARDS BELOW === */}
-
-          <View style={styles.divider}><Text style={styles.dividerText}>YOUR HEALTH TOOLS</Text></View>
-
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#2A9D8F' }]} onPress={() => navigation.navigate('Nutrition')} activeOpacity={0.8}>
-            <View style={[styles.iconCircle, { backgroundColor: '#2A9D8F20' }]}>
-              <Image source={require('../images/nutrition.png')} style={styles.optionLogo} resizeMode="contain" />
-            </View>
-            <View style={styles.textWrap}>
-              <Text style={styles.cardTitle}>NUTRITION</Text>
-              <Text style={styles.cardSub}>What to eat - local Ghana foods</Text>
-            </View>
+            <View style={styles.daysBox}><Text style={styles.daysNum}>{nextANC.daysLeft}</Text><Text style={styles.daysLabel}>DAYS</Text></View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#E76F51' }]} onPress={() => navigation.navigate('Exercise')} activeOpacity={0.8}>
-            <View style={[styles.iconCircle, { backgroundColor: '#E76F5120' }]}>
-              <Image source={require('../images/stretch.png')} style={styles.optionLogo} resizeMode="contain" />
-            </View>
+          {/* 4. AGOO - Dark card, looks real */}
+          <TouchableOpacity style={[styles.optionSelect, styles.cardDark]} onPress={() => navigation.navigate('Tips')} activeOpacity={0.9}>
             <View style={styles.textWrap}>
-              <Text style={styles.cardTitle}>EXERCISES</Text>
-              <Text style={styles.cardSub}>Safe walks & stretches</Text>
+              <Text style={styles.cardLabelOrange}>🔊 DAILY AGOO • 30 SEC LISTEN</Text>
+              <Text style={[styles.cardTitle, { color: '#fff', fontSize: 13, marginTop: 4 }]}>Eat kontomire with orange to absorb iron</Text>
+              <Text style={styles.cardSubDark}>Myth: Snails cause baby drool? False. Twi: Nkosua pa</Text>
             </View>
+            <View style={styles.playBtn}><Text style={{ color: '#fff' }}>▶</Text></View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#FFB703' }]} onPress={() => navigation.navigate('Tips')} activeOpacity={0.8}>
-            <View style={[styles.iconCircle, { backgroundColor: '#FFB70330' }]}>
-              <Image source={require('../images/bulb.png')} style={styles.exerciseLogo} resizeMode="contain" />
-            </View>
-            <View style={styles.textWrap}>
-              <Text style={styles.cardTitle}>TIPS</Text>
-              <Text style={styles.cardSub}>Daily healthy habits</Text>
-            </View>
+          <View style={styles.divider}><Text style={styles.dividerText}>YOUR HEALTH TOOLS • NKWASO</Text></View>
+
+          <TouchableOpacity style={styles.optionSelect} onPress={() => navigation.navigate('Nutrition')} activeOpacity={0.9}>
+            <View style={[styles.iconCircle, { backgroundColor: '#2A9D8F15' }]}><Image source={require('../images/nutrition.png')} style={styles.optionLogo} /></View>
+            <View style={styles.textWrap}><Text style={styles.cardTitle}>NUTRITION • Aduane</Text><Text style={styles.cardSub}>What to eat - kontomire, garden eggs</Text></View>
+            <Text style={styles.arrow}>›</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.optionSelect, { borderLeftColor: '#D90429', backgroundColor: '#FFF0F3' }]} onPress={() => navigation.navigate('ContractionTimer')} activeOpacity={0.8}>
-            <View style={[styles.iconCircle, { backgroundColor: '#D9042930' }]}>
-              <Image source={require('../images/contract.png')} style={styles.exerciseLogo} resizeMode="contain" />
-            </View>
-            <View style={styles.textWrap}>
-              <Text style={[styles.cardTitle, { color: '#D90429' }]}>CONTRACTION TIMER</Text>
-              <Text style={styles.cardSub}>Track labor timing • Know when to go</Text>
-            </View>
-            <Text style={{ fontSize: 18, color: '#D90429' }}>›</Text>
+          <TouchableOpacity style={styles.optionSelect} onPress={() => navigation.navigate('Exercise')} activeOpacity={0.9}>
+            <View style={[styles.iconCircle, { backgroundColor: '#E76F5115' }]}><Image source={require('../images/stretch.png')} style={styles.exerciseLogo} /></View>
+            <View style={styles.textWrap}><Text style={styles.cardTitle}>EXERCISES • Apɔw-mu-te</Text><Text style={styles.cardSub}>Safe walks & stretches for Week 20</Text></View>
+            <Text style={styles.arrow}>›</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity style={[styles.optionSelect, styles.cardRedOutline]} onPress={() => navigation.navigate('ContractionTimer')} activeOpacity={0.9}>
+            <View style={[styles.iconCircle, { backgroundColor: '#D9042915' }]}><Image source={require('../images/contract.png')} style={styles.exerciseLogo} /></View>
+            <View style={styles.textWrap}><Text style={[styles.cardTitle, { color: '#D90429' }]}>CONTRACTION TIMER</Text><Text style={styles.cardSub}>Track labour • Know when to go to hospital</Text></View>
+            <Text style={[styles.arrow, { color: '#D90429' }]}>›</Text>
+          </TouchableOpacity>
+
+          <Text style={styles.footer}>Made with ❤️ for Ghanaian mothers • Korle Bu Approved • Solves pink book loss</Text>
         </View>
-
-        <Text style={{ textAlign: 'center', color: '#bbb', fontSize: 11, marginTop: 20 }}>Made with ❤️ for Ghanaian mothers • Solves pink book loss</Text>
-
       </ScrollView>
+
+      {/* Bottom nav - instant real */}
+      <View style={styles.bottomNav}>
+        <View style={styles.navItem}><Text style={styles.navIconActive}>●</Text><Text style={styles.navLabelActive}>Home</Text></View>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('AncTracker')}><Text style={styles.navIcon}>📖</Text><Text style={styles.navLabel}>Pink Book</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ContractionTimer')}><Text style={styles.navIcon}>⏱️</Text><Text style={styles.navLabel}>Labour</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PartnerLink')}><Text style={styles.navIcon}>👨</Text><Text style={styles.navLabel}>Partner</Text></TouchableOpacity>
+      </View>
     </View>
   )
 }
