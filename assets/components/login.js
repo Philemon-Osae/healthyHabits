@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Image, View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserContext } from './UserContext'; // <-- ADDED
 import styles from '../styles/loginStyles';
 
 export function Login({ navigation }) {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const { saveName } = useContext(UserContext); // <-- ADDED
 
   const handleLogin = async () => {
     if (!username.trim()) {
       Alert.alert("Enter name", "E.g. Mary, Rose");
       return;
     }
-    
+
     // SAVE LIKE PLAY STORE - Mary stays Mary
+    // Save to BOTH places
     await AsyncStorage.setItem('userName', username.trim());
     await AsyncStorage.setItem('isLoggedIn', 'true');
+    await saveName(username.trim()); // <-- THIS FIXES AC BUG! Updates context immediately
 
     navigation.replace('Homepage');
   };
@@ -41,7 +45,7 @@ export function Login({ navigation }) {
           />
           <Text style={styles.label}>Password • Password</Text>
           <TextInput style={styles.input} placeholder="Enter password" placeholderTextColor={'#aaa'} value={password} onChangeText={setPassword} secureTextEntry={true} />
-          
+
           <TouchableOpacity style={styles.customBotton} onPress={handleLogin} activeOpacity={0.8}>
             <Text style={styles.textt}>Login →</Text>
           </TouchableOpacity>
