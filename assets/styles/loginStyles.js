@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF9F0',
+    backgroundColor: '#F7F5F2', // same as homepage - premium
   },
   scrollContent: {
     flexGrow: 1,
@@ -12,48 +12,57 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 50,
     marginBottom: 10,
   },
   logo: {
-    width: 220,
-    height: 220,
+    width: 90, // smaller = real app, not demo
+    height: 90,
   },
   appName: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '800',
     color: '#D90429',
-    marginTop: 5,
+    marginTop: 10,
+    letterSpacing: 1,
   },
   welcome: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 4,
+    fontSize: 13,
+    color: '#555',
+    marginTop: 6,
+    fontWeight: '600',
+  },
+  twiHint: {
+    fontSize: 11,
+    color: '#999',
+    marginTop: 3,
+    fontStyle: 'italic',
   },
   inputContainer: {
     width: '100%',
-    paddingHorizontal: 25,
+    paddingHorizontal: 20,
     marginTop: 20,
   },
   label: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: '#333',
-    marginLeft: 10,
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#888',
+    marginLeft: 4,
     marginBottom: 6,
-    marginTop: 15,
+    marginTop: 16,
+    letterSpacing: 0.5,
   },
   input: {
-    height: 52,
+    height: 54,
     backgroundColor: '#fff',
     width: '100%',
-    paddingHorizontal: 20,
-    borderRadius: 12,
+    paddingHorizontal: 18,
+    borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#FFD1DC',
+    borderColor: '#eee',
     fontSize: 15,
-    color: '#222',
-    elevation: 1,
+    color: '#111',
+    elevation: 2,
   },
   forgotContainer: {
     alignSelf: 'flex-end',
@@ -61,37 +70,43 @@ const styles = StyleSheet.create({
   },
   forgotText: {
     color: '#888',
-    fontSize: 13,
+    fontSize: 12,
   },
   customBotton: {
-    height: 52,
-    marginTop: 25,
-    backgroundColor: '#FF003D',
+    height: 54,
+    marginTop: 28,
+    backgroundColor: '#111', // premium black
     width: '100%',
-    borderRadius: 12,
+    borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 3,
   },
   textt: {
     color: 'white',
-    fontSize: 17,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '800',
   },
   signupContainer: {
     flexDirection: 'row',
-    marginTop: 25,
+    marginTop: 22,
     alignSelf: 'center',
   },
   signText: {
-    color: '#555',
-    fontSize: 14,
+    color: '#777',
+    fontSize: 13,
   },
   signupLink: {
-    fontWeight: 'bold',
-    color: '#FF003D',
-    marginLeft: 5,
+    fontWeight: '800',
+    color: '#111',
+    marginLeft: 4,
   },
+  footer: {
+    textAlign: 'center',
+    fontSize: 10,
+    color: '#bbb',
+    marginTop: 20,
+  }
 });
 
 export default styles;
