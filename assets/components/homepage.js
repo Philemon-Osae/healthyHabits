@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity, View, ScrollView, Text } from "react-native";
 import { useState, useContext } from "react";
-import { UserContext } from "./UserContext"; // <-- ADDED
+import { UserContext } from "../../UserContext"; // <-- ADDED
 import styles from "../styles/homepage";
 
 export const Homepage = ({ navigation }) => {

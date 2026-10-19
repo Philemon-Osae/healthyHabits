@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Image, View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { UserContext } from './UserContext'; // <-- ADDED
+import { UserContext } from '../../UserContext'; // <-- ADDED
 import styles from '../styles/signupStyles'
 
 export default function SignUp({ navigation }) {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -22,7 +23,7 @@ import Tips from './assets/components/tips';
 import ContractionTimer from './assets/components/contractionTimer';
 import { AncTracker } from './assets/components/AncTracker';
 import { PartnerLink } from './assets/components/PartnerLink';
-import { UserProvider } from './assets/components/UserContext'; // <-- ADDED
+import { UserProvider } from './UserContext'; // <-- ADDED
 
 const Stack = createNativeStackNavigator();
 

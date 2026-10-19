@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking } from 'react-native';
 import { useContext } from 'react';
-import { UserContext } from './UserContext'; // <-- ADDED
+import { UserContext } from '../../UserContext'; // <-- ADDED
 
 export const PartnerLink = ({ navigation }) => {
   const { userName } = useContext(UserContext); // Gets Phil, Chris, whatever typed at signup
